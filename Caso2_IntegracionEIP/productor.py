@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import json
 import stomp
-
+import time
 app = Flask(__name__)
 #--------------------- ACTIVEMQ STOMP----------------------
 #variables de conexion del StompProducer.ipynb
@@ -23,10 +23,12 @@ def recibir_sensores():
     try:
         datos = request.get_json()
         print("Datos recibidos de godot:", datos)
-        
-        # Guardar los últimos datos
+        # Agregar timestamp y metadata
+        datos['timestamp'] = time.time()
+        datos['fecha'] = time.strftime('%Y-%m-%d %H:%M:%S')
+        #guardamos los ultimos datos recibidos
         ultimos_datos.update(datos)
-        datos_str = json.dumps(datos)
+        datos_str = json.dumps(datos) #se envian a la cola
 
         stomp_conn.send(destination=ACTIVEMQ_QUEUE, body=datos_str)
         print(f"enviado a ActiveMQ cola {ACTIVEMQ_QUEUE}")
@@ -42,6 +44,18 @@ def obtener_sensores():
     """Endpoint opcional para verificar los últimos datos"""
     return jsonify(ultimos_datos), 200
 
+@app.route('/status', methods=['GET'])
+def status():
+    """Verificar estado del sistema"""
+    return jsonify({
+        "flask": "ok",
+        "activemq": "conectado",
+        "cola_principal": ACTIVEMQ_QUEUE
+    }), 200
+
 if __name__ == '__main__':
     print(f"Servidor HTTP iniciado en http://127.0.0.1:5050")
+    print(f"ActiveMQ: {ACTIVEMQ_HOST}:{ACTIVEMQ_PORT}")
+    print(f"Cola principal: {ACTIVEMQ_QUEUE}")
+    
     app.run(host='127.0.0.1', port=5050, debug=True)
