@@ -61,7 +61,7 @@ Colas según dato:
 
 2. **Terminal 1 - Iniciar el adaptador HTTP:**
 ```bash
-   python conexion.py
+   python productor.py
 ```
 
 3. **Terminal 2 - Iniciar el router:**
