@@ -63,20 +63,19 @@ Colas según dato:
 ```bash
    python productor.py
 ```
+3. **Terminal 4 - Ejecutar la simulación:**
+   - Abrir el proyecto en Godot y ejecutarlo
+   - Usar la barra espaciadora para generar variaciones en humedad y CO2
 
-3. **Terminal 2 - Iniciar el router:**
+4.**Terminal 2 - Iniciar el router:**
 ```bash
    python router.py
 ```
 
-4. **Terminal 3 - Iniciar los consumidores:**
+5. **Terminal 3 - Iniciar los consumidores:**
 ```bash
    python consumidores.py
 ```
-
-5. **Terminal 4 - Ejecutar la simulación:**
-   - Abrir el proyecto en Godot y ejecutarlo
-   - Usar la barra espaciadora para generar variaciones en humedad y CO2
 
 ### Verificar que funciona:
 - Abrir la consola web de ActiveMQ: http://127.0.0.1:8161/admin
