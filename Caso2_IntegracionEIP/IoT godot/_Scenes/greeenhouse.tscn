@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpadures0he00"]
+
+[ext_resource type="PackedScene" uid="uid://wy4ud4xe0o37" path="res://_Scenes/Transmitters/transmitter.tscn" id="1_f874k"]
+[ext_resource type="PackedScene" uid="uid://cbsyn8bfnxkn5" path="res://_Scenes/Transmitters/thermostat.tscn" id="1_h816t"]
+[ext_resource type="PackedScene" uid="uid://x8v0qakht40f" path="res://_Scenes/sensor.tscn" id="3_n0pgp"]
+[ext_resource type="PackedScene" uid="uid://7g2jq7pl7m68" path="res://UI/sensor_ui.tscn" id="4_syoel"]
+[ext_resource type="Script" uid="uid://cfmxyi2q4j5my" path="res://_Scenes/Datasender.gd" id="5_6u2x5"]
+
+[node name="Greeenhouse" type="Node2D"]
+
+[node name="Thermostat" parent="." instance=ExtResource("1_h816t")]
+position = Vector2(128, 72)
+
+[node name="Transmitters" type="Node2D" parent="."]
+
+[node name="TransmitterHumidity" parent="Transmitters" instance=ExtResource("1_f874k")]
+position = Vector2(85, 72)
+
+[node name="TransmitterCO2" parent="Transmitters" instance=ExtResource("1_f874k")]
+position = Vector2(170, 72)
+type = 1
+power = 25.0
+
+[node name="Sensors" type="Node2D" parent="."]
+
+[node name="SensorHumidity" parent="Sensors" instance=ExtResource("3_n0pgp")]
+position = Vector2(64, 108)
+
+[node name="SensorCO2" parent="Sensors" instance=ExtResource("3_n0pgp")]
+position = Vector2(192, 108)
+type = 1
+
+[node name="UICanvas" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UICanvas"]
+custom_minimum_size = Vector2(0, 36)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="SensorUIHumidity" parent="UICanvas/HBoxContainer" node_paths=PackedStringArray("sensor") instance=ExtResource("4_syoel")]
+layout_mode = 2
+sensor = NodePath("../../../Sensors/SensorHumidity")
+unit = "%"
+
+[node name="SensorUITemperature" parent="UICanvas/HBoxContainer" node_paths=PackedStringArray("thermostat") instance=ExtResource("4_syoel")]
+layout_mode = 2
+thermostat = NodePath("../../../Thermostat")
+unit = "°C"
+
+[node name="SensorUICO2" parent="UICanvas/HBoxContainer" node_paths=PackedStringArray("sensor") instance=ExtResource("4_syoel")]
+layout_mode = 2
+sensor = NodePath("../../../Sensors/SensorCO2")
+unit = "ppm"
+
+[node name="Enviador" type="Node" parent="."]
+script = ExtResource("5_6u2x5")

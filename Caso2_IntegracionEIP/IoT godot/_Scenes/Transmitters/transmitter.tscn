@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://wy4ud4xe0o37"]
+
+[ext_resource type="Script" uid="uid://7x3gor5borat" path="res://_Scripts/Transmitters/transmitter.gd" id="1_rvyod"]
+[ext_resource type="PackedScene" uid="uid://ci5loadwia0ne" path="res://_Scenes/Transmitters/particle.tscn" id="2_ggi7b"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ggi7b"]
+size = Vector2(4, 4)
+
+[node name="Transmitter" type="Node2D" node_paths=PackedStringArray("preloader")]
+script = ExtResource("1_rvyod")
+preloader = NodePath("ResourcePreloader")
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("particle"), [ExtResource("2_ggi7b")]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_ggi7b")

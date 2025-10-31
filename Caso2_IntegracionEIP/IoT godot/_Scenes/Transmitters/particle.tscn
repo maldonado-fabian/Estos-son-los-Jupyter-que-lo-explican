@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci5loadwia0ne"]
+
+[ext_resource type="Script" uid="uid://baxmywnqi7r6c" path="res://_Scripts/Transmitters/particle.gd" id="1_oi1s6"]
+[ext_resource type="Texture2D" uid="uid://otmatmljwcw3" path="res://Assets/Art/particle.png" id="2_ihstc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ahj8"]
+size = Vector2(1, 1)
+
+[node name="Particle" type="RigidBody2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 4
+collision_mask = 3
+gravity_scale = 0.0
+can_sleep = false
+script = ExtResource("1_oi1s6")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ihstc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4ahj8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-0.5, -0.5, 1, 1)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

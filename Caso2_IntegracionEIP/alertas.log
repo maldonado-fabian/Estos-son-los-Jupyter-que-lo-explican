@@ -1,9 +1,9 @@
-[None] CO2 - Valor: None - None
-[None] Humedad - Valor: None - None
-[None] Temperatura - Valor: None - None
-[2025-10-30 18:41:12] CO2 - Valor: 0.0 - ⚠️  Humedad fuera de rango: 0.0% (óptimo: 40-90)
-[2025-10-30 18:41:12] Humedad - Valor: 0.0 - ⚠️  Humedad fuera de rango: 0.0% (óptimo: 40-90)
-[2025-10-30 18:41:13] Temperatura - Valor: 0.0 - ⚠️  Humedad fuera de rango: 0.0% (óptimo: 40-90)
-[2025-10-30 20:30:48] CO2 - Valor: 22.0 - ⚠️  CO2 fuera de rango: 22.0 ppm (óptimo: 700-1000)
-[2025-10-30 20:30:48] Humedad - Valor: 22.0 - ⚠️  CO2 fuera de rango: 22.0 ppm (óptimo: 700-1000)
-[2025-10-30 20:30:48] Temperatura - Valor: 22.0 - ⚠️  CO2 fuera de rango: 22.0 ppm (óptimo: 700-1000)
+[2025-10-30 23:11:01] CO2 - Valor: None - None
+[2025-10-30 23:11:01] Humedad - Valor: None - None
+[2025-10-30 23:11:01] Temperatura - Valor: None - None
+[2025-10-30 23:11:54] CO2 - Valor: None - None
+[2025-10-30 23:11:54] Humedad - Valor: None - None
+[2025-10-30 23:11:54] Temperatura - Valor: None - None
+[2025-10-30 23:11:31] CO2 - Valor: 43.0 - ⚠️  CO2 fuera de rango: 43.0 ppm (óptimo: 700-1000)
+[2025-10-30 23:11:31] Humedad - Valor: 43.0 - ⚠️  CO2 fuera de rango: 43.0 ppm (óptimo: 700-1000)
+[2025-10-30 23:11:31] Temperatura - Valor: 43.0 - ⚠️  CO2 fuera de rango: 43.0 ppm (óptimo: 700-1000)

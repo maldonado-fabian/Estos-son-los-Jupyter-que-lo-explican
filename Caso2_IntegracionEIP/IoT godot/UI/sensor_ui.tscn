@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://7g2jq7pl7m68"]
+
+[ext_resource type="Theme" uid="uid://ludsehaotaqo" path="res://UI/sensor_ui.tres" id="1_4yded"]
+[ext_resource type="Script" uid="uid://b4bjyqiounx00" path="res://UI/sensor_ui.gd" id="2_nybet"]
+
+[node name="SensorUI" type="Control" node_paths=PackedStringArray("value_label", "unit_label")]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_4yded")
+script = ExtResource("2_nybet")
+value_label = NodePath("PanelContainer/VBoxContainer/Value")
+unit_label = NodePath("PanelContainer/VBoxContainer/Unit")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(24, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -17.5
+offset_right = 7.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Value" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Unit" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "[u]"
+horizontal_alignment = 1
+vertical_alignment = 1
